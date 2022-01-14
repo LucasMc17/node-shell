@@ -4,6 +4,7 @@ const pwd = require("./pwd");
 const cat = require("./cat")
 const ls = require("./ls");
 const curl = require('./curl')
+const getDate = require('./date')
 
 process.stdin.on("data", (data) => {
   const cmd = data.toString().trim();
@@ -18,6 +19,9 @@ process.stdin.on("data", (data) => {
   }
   if(cmd.split(' ')[0] === 'curl'){
     curl(cmd.split(' ')[1], done)
+  }
+  if (cmd === "date") {
+    getDate(done)
   }
 });
 
